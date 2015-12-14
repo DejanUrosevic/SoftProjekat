@@ -1,5 +1,5 @@
 # 
-Univerzitet u Novom Sadu 
+Univerzitet u Novom Sadu
 Fakultet Tehnickih Nauka
 Soft kompjuting 2015/2016
 
