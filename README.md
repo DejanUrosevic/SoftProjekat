@@ -11,4 +11,4 @@ SoftProjekat
   
   Manipulation of OCR algorithm in use of recognition car plates for other purposes. 
   
-Repozitorijum za projekat iz predmeta Soft Kompjuting
+
