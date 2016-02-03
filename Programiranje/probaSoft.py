@@ -52,7 +52,7 @@ def erode(image):
     return cv2.erode(image, kernel, iterations=1)
 
 def erode2(image):
-    kernel = np.ones((2,2)) # strukturni element 3x3 blok
+    kernel = np.ones((2,2)) # strukturni element 2x2 blok
     return cv2.erode(image, kernel, iterations=1)
 
 def display_image(image, color= False):
@@ -150,6 +150,7 @@ def merge_regions(contours):
             #TODO 2 - izvršiti spajanje kukica iznad slova
             #spajanje dva niza je moguće obaviti funkcijom np.concatenate((contour1,contour2))
             
+            
             if len(contour1)/2>len(contour2): #provera pretpostavke da je contour1 slovo
                 
                 if (min_y1-max_y2)<max(max_y1-min_y1,max_y2-min_y2)/2 \
@@ -164,7 +165,7 @@ def merge_regions(contours):
                    merged_index.append(i)
                    merged_index.append(j)
               '''  
-                    
+              
             
                    
     #svi regioni koji se nisu ni sa kim spojili idu u listu kontura, bez spajanja
@@ -179,7 +180,7 @@ def merge_regions(contours):
             contour5 = ret_val[aa+1]
             ret_val.append(np.concatenate((contour4, contour5)))
     '''
-   
+    
     return ret_val
 
 
@@ -633,9 +634,8 @@ contour6 = resize_region(contour6)
 letters_obucavanje = letters_obucavanje[0:40]
 letters_obucavanje[39] = contour6
 #-------------------------
-    '''
+'''
 letters_obucavanje = letters_obucavanje[0:40]
-
 
 inputs_obucavanje = prepare_for_ann(letters_obucavanje)
 alphabet = ['A', 'B', 'C', 'Ć', 'Č', 'D', 'Đ', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'Š', 'T', 'U', 'V', 'Z', 'Ž', 'W', 'X', 'Y', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
@@ -643,7 +643,7 @@ alphabet = ['A', 'B', 'C', 'Ć', 'Č', 'D', 'Đ', 'E', 'F', 'G', 'H', 'I', 'J', 
 
 outputs_obucavanje = convert_output(alphabet)
 ann = create_ann()
-#ann = train_ann(ann, inputs_obucavanje, outputs_obucavanje)
+ann = train_ann(ann, inputs_obucavanje, outputs_obucavanje)
 
 
 
